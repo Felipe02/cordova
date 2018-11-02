@@ -15,3 +15,6 @@ Automação de processos efetuados em um restaurante com integração a API REST
 - Materialize
 - Material Design Lite
 
+## Imagem
+![alt text](https://github.com/Felipe02/cordova/blob/master/www/images/celular.PNG)
+
