@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <title>Huuungry Garçom</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+
+<body>
+
+    <div class="nav-wrapper navbar-fixed">
+        <nav>
+            <form>
+                <div class="input-field blue darken-4">
+                    <input id="myInput" type="search" onkeyup="Filter()" class="autocomplete" required>
+                    <label class="label-icon" for="myInput">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <i class="material-icons" onclick="document.getElementById('myInput').value = ''">close</i>
+                </div>
+            </form>
+        </nav>
+    </div>
+
+    <ul class="tabs  blue darken-4">
+        <li class="tab">
+            <a href="#bolos" class="white-text waves-effect waves-light">
+                <b>Comida</b>
+                <i class="material-icons">restaurant</i>
+            </a>
+        </li>
+        <li class="tab">
+            <a href="#bebidas" class="white-text waves-effect waves-light">
+                <b>Bebida</b>
+                <i class="material-icons">local_bar</i>
+            </a>
+        </li>
+    </ul>
+    <div id="filter">
+        <div id="bolos" class="section">
+            <ul class="collection" id="myUL"></ul>
+        </div>
+        <div id="bebidas" class="section">
+            <ul class="collection" id="drink"></ul>
+        </div>
+    </div>
+
+    <div class="fixed-action-btn toolbar">
+        <a class="btn-floating btn-large orange darken-0">
+            <i class="large material-icons">menu</i>
+        </a>
+        <ul>
+            <li class="waves-effect waves-light">
+                <a>
+                    <i class="material-icons  waves-effect waves-light modal-trigger" href="#confirmacao" id="confirmar">done</i>
+                </a>
+            </li>
+            <li class="waves-effect  waves-effect waves-light scan-qrcode">
+                <a>
+                    <i class="material-icons">camera</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="confirmacao" class="modal modal-fixed-footer">
+
+        <div class="modal-content">
+
+            <div class="row">
+                <form class="col s12">
+                    <h5>
+                        Resumo do Pedido
+                    </h5>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="numero-mesa" type="number" class="validate">
+                            <label for="numero-mesa">Mesa</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">mode_edit</i>
+                            <input id="observacao" type="text" class="validate" data-length="20">
+                            <label for="observacao">Observação</label>
+                        </div>
+                    </div>
+                    <blockquote id="resumo"></blockquote>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-flat waves-effect waves-red modal-close acao-limpar center-left">
+                Cancelar
+            </button>
+            <button class="btn-flat orange darken-0 waves-effect waves-light modal-close acao-finalizar center-align">
+                Pedir
+            </button>
+        </div>
+
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="js/app.js"></script>
+</body>
+
+</html>

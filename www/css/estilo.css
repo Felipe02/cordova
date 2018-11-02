@@ -1,0 +1,40 @@
+.tabs .indicator{
+	background-color: white;
+}
+body{
+	background-color:#f2f2f2;
+}
+.titulo{
+	font-size: 1.3rem;
+	margin-left: 5%;
+	margin-right: auto;
+}
+.topo-fixo{
+	position: fixed;
+	top:0;
+	width: 100%;
+	height: 0px;
+	z-index: 2;
+}
+.topo-fixo1{
+
+	top:0;
+	width: 100%;
+	height: 0px;
+	z-index: 2;
+}
+.section{
+	padding-top: 125px;
+}
+.scan-qrcode{
+	right:260px;
+}
+  header, main, footer {
+      padding-left: 300px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
