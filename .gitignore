@@ -2,3 +2,10 @@ node_modules
 android
 browser
 .vscode
+cordova-plugin-compat
+cordova-plugin-statusbar
+cordova-plugin-vibration
+cordova-plugin-websql
+cordova-plugin-whitelist
+cordova-sqlite-legacy-build-support
+phonegap-plugin-barcodescanner
