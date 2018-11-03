@@ -1,0 +1,33 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "org.felipereira.garcoapp"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "org.felipereira.garcoapp"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "org.felipereira.garcoapp"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "org.felipereira.garcoapp"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "org.felipereira.garcoapp"
+        },
+        "cordova-sqlite-legacy-build-support": {
+            "PACKAGE_NAME": "org.felipereira.garcoapp"
+        },
+        "cordova-plugin-websql": {
+            "PACKAGE_NAME": "org.felipereira.garcoapp"
+        }
+    },
+    "dependent_plugins": {}
+}
