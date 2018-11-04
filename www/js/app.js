@@ -1,13 +1,18 @@
-﻿var DataPoints = [];
-var DrinkList = [];
-var count = 1;
-var count1 = 1;
+﻿/*
+* App cordova 
+* autor: Felipe Pereira
+*/
+
+const DataPoints = [];
+const url = 'http://localhost:3000/products';
+const urlPost = 'http://10.40.1.122:3000/novo-pedido';
 
 $(document).ready(function () {
+    var count = 1;
     $.ajax({
-        url: "http://localhost:3000/products",
+        url: url,
         success: function (result) {
-            //var data = JSON.parse(result)
+            // Incrementa o array com o data retordo pelo serviço consumido
             for (let _i = 0; _i < result.length; _i++) {
                 DataPoints.push({
                     "title": result[_i].title,
@@ -15,33 +20,30 @@ $(document).ready(function () {
                     "preco": result[_i].price
                 })
             }
-
-            for (let _i = 0; _i < DataPoints.length; _i++) {
-
+            //Monta a lista dos produtos
+            for (let _j = 0; _j < DataPoints.length; _j++) {
                 $('#myUL').append(
                     '<li class="collection-item">' +
-                    '<span class="title"><b> 0' + (count++) + ' Nome: ' + ' ' + DataPoints[_i].title + '</b></span>' +
-                    '<p>Descrição: ' + DataPoints[_i].category + '<p>' +
-                    '<p>Preço: </b>R$ ' + DataPoints[_i].preco + ',00</p>' +
+                    '<span class="title"><b> 0' + (count++) + ' Nome: ' + ' ' + DataPoints[_j].title + '</b></span>' +
+                    '<p>Descrição: ' + DataPoints[_j].category + '<p>' +
+                    '<p>Preço: </b>R$ ' + DataPoints[_j].preco + ',00</p>' +
                     "</li>");
             }
             console.log(DataPoints);
         },
         error: function (request, error) {
-            alert('Timeout request food list');
+            alert('Request timeout');
         }
-
     });
-
 });
-
 
 $('.collection')
     .on('click', '.collection-item', function () {
-        var nomeProduto = this.firstChild.textContent;
-        Materialize.toast(nomeProduto + ' adicionado', 900);
+        var newProduct = this.firstChild.textContent;
+        Materialize.toast(newProduct + ' adicionado', 900);
 
         var $badge = $('.badge', this);
+        
         if ($badge.length === 0) {
             $badge = $('<span class="badge brown-text">0</span>').appendTo(this);
         }
@@ -53,21 +55,21 @@ $('.collection')
         return false;
     });
 
+// Modal Trigger
 $(document).ready(function () {
-    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
 });
 
-
+//Confirmação do pedido
 $('#confirmar').on('click', function () {
-    var texto = "";
+    var text = '';
 
     $('.badge').parent().each(function () {
-        texto += this.firstChild.textContent + ': ';
-        texto += this.lastChild.textContent + ', ';
+        text += this.firstChild.textContent + ': ';
+        text += this.lastChild.textContent + ', ';
     });
 
-    $('#resumo').empty().text(texto);
+    $('#resumo').empty().text(text);
 });
 
 $('.acao-limpar').on('click', function () {
@@ -80,6 +82,7 @@ $('.acao-limpar').on('click', function () {
     $('.badge').remove();
 });
 
+//Declaração do plugin qrcode
 $('.scan-qrcode').click(function () {
     cordova.plugins.barcodeScanner.scan(function (resultado) {
         if (resultado.text) {
@@ -92,9 +95,10 @@ $('.scan-qrcode').click(function () {
         });
 });
 
+//Finalização do pedido (Envia os dados para o servidor)
 $('.acao-finalizar').on('click', function () {
     $.ajax({
-        url: 'http://10.40.1.122:3000/novo-pedido',
+        url: urlPost,
         data: {
             mesa: $('#numero-mesa').val(),
             pedido: $('#resumo').text(),
