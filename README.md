@@ -6,6 +6,9 @@ O Cordova usa apenas HTML, CSS e JavaScript, então o desenvolvedor web que já 
 # Descrição do Projeto
 Automação de processos efetuados em um restaurante com integração a API REST.
 
+## Aplicativo
+![alt text](https://github.com/Felipe02/cordova/blob/master/www/images/celular.PNG)
+
 ## Estilo de arquitetura do Projeto
 - SOA (Service-Oriented Architecture)
 
@@ -18,6 +21,4 @@ Automação de processos efetuados em um restaurante com integração a API REST
 ## Comando para compilação 
 - cordova run android
 
-## Imagem
-![alt text](https://github.com/Felipe02/cordova/blob/master/www/images/celular.PNG)
 
