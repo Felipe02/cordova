@@ -11,13 +11,17 @@ $(document).ready(function () {
         url: url,
         // Consume o serviço e exibe os dados na interface
         success: function (result) {
-            for (let _i = 0; _i < result.length; _i++) {
-                $('#myUL').append(
-                    '<li class="collection-item">' +
-                    '<span class="title"><b> 0' + (_i + 1) + ' Nome: ' + ' ' + result[_i].title + '</b></span>' +
-                    '<p>Descrição: ' + result[_i].category + '<p>' +
-                    '<p>Preço: </b>R$ ' + result[_i].price + ',00</p>' +
-                    "</li>");
+            if(result.length > 0){
+                for (let _i = 0; _i < result.length; _i++) {
+                    $('#myUL').append(
+                        '<li class="collection-item">' +
+                        '<span class="title"><b> 0' + (_i + 1) + ' Nome: ' + ' ' + result[_i].title + '</b></span>' +
+                        '<p>Descrição: ' + result[_i].category + '<p>' +
+                        '<p>Preço: </b>R$ ' + result[_i].price + ',00</p>' +
+                        "</li>");
+                }
+            }else{
+                alert("Lista vazia");
             }
         },
         error: function (request, error) {
