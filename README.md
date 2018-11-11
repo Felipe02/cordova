@@ -19,6 +19,6 @@ Automação de processos efetuados em um restaurante com integração a API REST
 - Material Design Lite
 
 ## Comando para compilação 
-- cordova run android
+- `cordova run android`
 
 
